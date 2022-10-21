@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>e-registrar website - Add New Student</title>
+</head>
+<body>
+    <header th:replace="fragments/header :: header"></header>
+    <main>
+        <h1>New Student Form</h1>
+        <div style="border: 1px solid;padding: 1em;">
+            <div>
+                Fields marked with asterisk (*) are required.
+            </div>
+<!--            <form method="post" action="/eregistrar/student/new" th:object="${student}">-->
+<!--                <fieldset>-->
+<!--                    <div>-->
+<!--                        <label>Student First Name*</label>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <div><span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:red;"></span></div>-->
+<!--                        <input name="name" type="text" th:value="${student.firstName}" autofocus>-->
+<!--                    </div>-->
+<!--                </fieldset>-->
+<!--                <fieldset>-->
+<!--                    <legend>Student Middle Name</legend>-->
+<!--                    <div>-->
+<!--                        <label>Student Last Name</label>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <input name="lastName" type="text" th:field="*{student.lastName}">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label>cgpa</label>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <input name="cgpa" type="text" th:field="*{student.cgpa}">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label>isInternational</label>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <input name="isInternational" type="text" th:field="*{student.isInternational}">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label>Zip Code</label>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <input name="zipCode" type="text" th:field="*{primaryAddress.zipCode}">-->
+<!--                    </div>-->
+<!--                </fieldset>-->
+<!--                <div style="margin-top: 1em;">-->
+<!--                    <a class="std-lnk-btn" href="/fairfieldlibrary/publisher/list">Cancel</a>-->
+<!--                    <input class="std-btn" type="reset" value="Reset">-->
+<!--                    <input class="std-btn" type="submit" value="Add Publisher">-->
+<!--                </div>-->
+<!--            </form>-->
+        </div>
+    </main>
+</body>
+</html>
