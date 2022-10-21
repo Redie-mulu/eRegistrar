@@ -13,5 +13,6 @@ public interface StudentService {
     public Student findStudentByName(String name);
     public Student getStudentById(Integer studentId);
     public void updateStudent(Student student);
+    public List<Student> searchStudent(String searchString);
 
 }

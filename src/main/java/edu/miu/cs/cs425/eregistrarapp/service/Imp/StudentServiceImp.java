@@ -57,4 +57,11 @@ public class StudentServiceImp implements StudentService {
         Student s =  studentRepository.findStudentByStudentId(student.getStudentId());
         s = student;
     }
+
+    @Override
+    public List<Student> searchStudent(String searchString) {
+        return studentRepository.findAllByFirstNameContainingOrLastNameContainingOrMiddleNameContainingOrCgpaContainingOrEnrollmentDateContainingOrStudentIdContainingOrStudentNumberContaining(
+                searchString, searchString,searchString, searchString, searchString, searchString,searchString
+        );
+    }
 }

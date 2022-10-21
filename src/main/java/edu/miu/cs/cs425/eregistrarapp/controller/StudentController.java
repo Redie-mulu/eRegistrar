@@ -27,6 +27,8 @@ public class StudentController {
         modelAndView.setViewName("students/list");
         return modelAndView;
     }
+
+    //search
     @GetMapping(value = {"/search"})
     public ModelAndView searchStudents(@RequestParam String searchString) {
         var modelAndView = new ModelAndView();
