@@ -46,4 +46,15 @@ public class StudentServiceImp implements StudentService {
     public Student findStudentByName(String name) {
         return studentRepository.findStudentsByFirstName(name);
     }
+
+    @Override
+    public Student getStudentById(Integer studentId) {
+        return studentRepository.findStudentByStudentId(studentId);
+    }
+
+    @Override
+    public void updateStudent(Student student) {
+        Student s =  studentRepository.findStudentByStudentId(student.getStudentId());
+        s = student;
+    }
 }

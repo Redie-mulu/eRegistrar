@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title> My e-registrar System - List of student</title>
+    <style>
+        table {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid;
+            padding: 1em;
+            background: palevioletred;
+        }
+
+    </style>
 </head>
 <body>
 <header th:replace = "fragments/header :: header"></header>
 <main>
     <h1>Student list</h1>
+    <p><a href="/eregistrar/student/new">Add New Publisher</a></p>
     <section>
         <table>
             <thead>
