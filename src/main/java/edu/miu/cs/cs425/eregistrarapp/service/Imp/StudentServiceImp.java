@@ -3,6 +3,7 @@ package edu.miu.cs.cs425.eregistrarapp.service.Imp;
 import edu.miu.cs.cs425.eregistrarapp.model.Student;
 import edu.miu.cs.cs425.eregistrarapp.repository.StudentRepository;
 import edu.miu.cs.cs425.eregistrarapp.service.StudentService;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class StudentServiceImp implements StudentService {
 
     @Override
     public List<Student> getAllStudents() {
-        return null;
+        return studentRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));
     }
 
     @Override
@@ -39,5 +40,10 @@ public class StudentServiceImp implements StudentService {
     @Override
     public Student findStudentById(Integer studentId) {
         return null;
+    }
+
+    @Override
+    public Student findStudentByName(String name) {
+        return studentRepository.findStudentsByFirstName(name);
     }
 }
