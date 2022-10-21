@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> My e-registrar System - List of student</title>
+</head>
+<body>
+<header th:replace = "fragments/header :: header"></header>
+<main>
+    <h1>Student list</h1>
+    <section>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th> Student Number</th>
+                <th> Student First name</th>
+                <th> Student Middle name</th>
+                <th> Student Last name</th>
+                <th> CGPA</th>
+                <th> Enrollment Date</th>
+                <th> Is International</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student, counter : ${students}">
+                <th scope="row" th:text="${counter.count} + '.'"></th>
+                <td th:text="${student.studentNumber}"></td>
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.middleName}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.cgpa }"></td>
+                <td th:text="${student.enrollmentDate}"></td>
+                <td th:text="${student.isInternational}"></td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>
