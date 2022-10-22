@@ -3,9 +3,12 @@ package edu.miu.cs.cs425.eregistrarapp.service.Imp;
 import edu.miu.cs.cs425.eregistrarapp.model.Student;
 import edu.miu.cs.cs425.eregistrarapp.repository.StudentRepository;
 import edu.miu.cs.cs425.eregistrarapp.service.StudentService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.print.attribute.standard.PageRanges;
 import java.util.List;
 
 @Service
@@ -17,8 +20,9 @@ public class StudentServiceImp implements StudentService {
     }
 
     @Override
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));
+    public Page<Student> getAllStudents( int pageNo) {
+//        return  studentRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));
+        return  studentRepository.findAll(PageRequest.of(pageNo, 3, Sort.Direction.ASC, "firstName"));
     }
 
     @Override

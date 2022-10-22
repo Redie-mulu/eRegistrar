@@ -18,7 +18,7 @@ public class StudentController {
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
-    @GetMapping("/list")// /eregistrar/student/list
+   /* @GetMapping("/list")// /eregistrar/student/list
     public ModelAndView listStudents() {
         var modelAndView = new ModelAndView();
         var students = studentService.getAllStudents();
@@ -26,7 +26,17 @@ public class StudentController {
 //        modelAndView.setViewName("secured/sysadmin/students/list");
         modelAndView.setViewName("students/list");
         return modelAndView;
-    }
+    }*/
+   @GetMapping("/list")// /eregistrar/student/list
+   public ModelAndView listStudents(@RequestParam(defaultValue = "0") int pageNo) {
+       var modelAndView = new ModelAndView();
+       var students = studentService.getAllStudents(pageNo);
+       modelAndView.addObject("students", students);
+       modelAndView.addObject("currentPageNo", pageNo);
+//        modelAndView.setViewName("secured/sysadmin/students/list");
+       modelAndView.setViewName("students/list");
+       return modelAndView;
+   }
 
     //search
     @GetMapping(value = {"/search"})
@@ -38,12 +48,14 @@ public class StudentController {
         modelAndView.setViewName("students/searchResult");
         return modelAndView;
     }
+    // form
     @GetMapping(value = {"/new"})
-    public String displayNewPublisherForm(Model model) {
+    public String displayNewStudentForm(Model model) {
         var newStudent = new Student();
         model.addAttribute("student", newStudent);
         return "students/new";
     }
+    // post redirect form
     @PostMapping(value = {"/new"})
     public String addNewStudent(@Valid @ModelAttribute("student") Student student,
         BindingResult bindingResult, Model model) {
@@ -56,7 +68,7 @@ public class StudentController {
     return "redirect:/eregistrar/student/list";
     }
     // edit
-    @GetMapping(value = {"/edit/{studentId}"})
+    @GetMapping(value = {"/edit/{studentId}"}) // "/eregistrar/student//edit/{studentId}
     public String displayEditPublisherForm(@PathVariable Integer studentId, Model model) {
         var student = studentService.findStudentById(studentId);
         if(student != null) {
@@ -67,7 +79,7 @@ public class StudentController {
         return "redirect:/eregistrar/student/list";
     }
     // update
-    @PostMapping(value = {"/udate"})
+    @PostMapping(value = {"/update"}) // "/eregistrar/student/update
     public String updateStudent(@Valid @ModelAttribute("student") Student student,
     BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()) {
