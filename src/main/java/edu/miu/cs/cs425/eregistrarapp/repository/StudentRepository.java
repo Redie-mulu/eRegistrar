@@ -13,4 +13,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     List<Student> findAllByFirstNameContainingOrLastNameContainingOrMiddleNameContainingOrCgpaContainingOrEnrollmentDateContainingOrStudentIdContainingOrStudentNumberContaining(
             String lastName, String firstName, String middleName, String cgpa, String enrollmentDate, String studentId, String studentNumber
     );
+    List<Student> findAllByFirstNameContainingOrLastNameContainingOrMiddleNameContaining(
+            String lastName, String firstName, String middleName
+    );
 }

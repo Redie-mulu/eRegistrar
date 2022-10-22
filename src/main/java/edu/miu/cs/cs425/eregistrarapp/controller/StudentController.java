@@ -42,8 +42,8 @@ public class StudentController {
     @GetMapping(value = {"/search"})
     public ModelAndView searchStudents(@RequestParam String searchString) {
         var modelAndView = new ModelAndView();
-        var student = studentService.findStudentByName(searchString);
-        modelAndView.addObject("student", student);
+        var students = studentService.searchStudent(searchString);
+        modelAndView.addObject("students", students);
         modelAndView.addObject("searchString", searchString);
         modelAndView.setViewName("students/searchResult");
         return modelAndView;
@@ -73,7 +73,7 @@ public class StudentController {
         var student = studentService.findStudentById(studentId);
         if(student != null) {
             model.addAttribute("student", student);
-            return "student/edit";
+            return "students/edit";
         }
 
         return "redirect:/eregistrar/student/list";

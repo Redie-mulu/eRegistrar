@@ -38,12 +38,12 @@ public class StudentServiceImp implements StudentService {
 
     @Override
     public void deleteStudent(Integer studentId) {
-
+        studentRepository.deleteById(studentId);
     }
 
     @Override
     public Student findStudentById(Integer studentId) {
-        return null;
+        return studentRepository.findStudentByStudentId(studentId);
     }
 
     @Override
@@ -58,14 +58,15 @@ public class StudentServiceImp implements StudentService {
 
     @Override
     public void updateStudent(Student student) {
-        Student s =  studentRepository.findStudentByStudentId(student.getStudentId());
-        s = student;
+        studentRepository.save(student);
+//        Student s =  studentRepository.findStudentByStudentId(student.getStudentId());
+//        s = student;
     }
 
     @Override
     public List<Student> searchStudent(String searchString) {
-        return studentRepository.findAllByFirstNameContainingOrLastNameContainingOrMiddleNameContainingOrCgpaContainingOrEnrollmentDateContainingOrStudentIdContainingOrStudentNumberContaining(
-                searchString, searchString,searchString, searchString, searchString, searchString,searchString
+        return studentRepository.findAllByFirstNameContainingOrLastNameContainingOrMiddleNameContaining(
+                searchString, searchString,searchString
         );
     }
 }

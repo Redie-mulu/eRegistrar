@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        form {
+            background: palevioletred;
+        }
+
+    </style>
 </head>
 <body>
 <header th:replace="fragments/header :: header"></header>
@@ -20,10 +26,9 @@
                     <label for="studentNumber">Student Number*</label>
                 </div>
                 <div>
-                    <div><span th:if="${#fields.hasErrors('studentNumber')}" th:errors="*{studentNumber}" class="error"></span></div>
+                    <div><span th:if="${#fields.hasErrors('studentNumber')}" th:errors="${studentNumber}" class="error"></span></div>
                     <input name="studentNumber" type="text" id="studentNumber" th:value="${student.studentNumber}" autofocus>
                 </div>
-
 
                 <!--                    <legend>input</legend>-->
                 <div>
@@ -74,11 +79,7 @@
             <div>
                 <input type="submit" value="Register Student">
             </div>
-            <div style="margin-top: 1em;">
-                <a class="std-lnk-btn" href="/fairfieldlibrary/publisher/list">Cancel</a>
-                <input class="std-btn" type="reset" value="Reset">
-                <input class="std-btn" type="submit" value="Add Publisher">
-            </div>
+
         </form>
     </div>
 </main>

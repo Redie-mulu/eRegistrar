@@ -23,22 +23,22 @@
 <!--    <p><a href="/eregistrar/student/new">Add New Student</a></p>-->
     <p><a href="/eregistrar/student/search">Search Student</a></p>
 <!--    search student -->
-<!--    <section>-->
-<!--        <form action="/fairfieldlibrary/sysadmin/publisher/search" method="get">-->
-<!--        <fieldset>-->
-<!--        <legend style="font-weight: bolder;">Search for Publisher(s)</legend>-->
-<!--        <label>-->
-<!--            You may search by Publisher's Name or any part of the Address data.-->
-<!--        </label>-->
-<!--        <div>-->
-<!--            <input tvpe="search" name="searchString" id="searchString" stvle="width: 35%; height:4em"-->
-<!--                th: value="${searchString}" placeholder="Enter some text to search for Publisher"-->
-<!--            autofocus>-->
-<!--            <button type="submit" style="height: 4em; width: 7em;">Search</button>-->
-<!--        </div>-->
-<!--        </fieldset>-->
-<!--        </form>-->
-<!--    </section>-->
+    <section>
+        <form action="/eregistrar/student/search" method="get">
+        <fieldset>
+        <legend style="font-weight: bolder;">Search for Student(s)</legend>
+        <label>
+            You may search by Student's Name or any other data.
+        </label>
+        <div>
+            <input tvpe="search" name="searchString" id="searchString" stvle="width: 35%; height:4em"
+                th:value="${searchString}" placeholder="Enter some text to search for Student"
+            autofocus>
+            <button type="submit" style="height: 4em; width: 7em;">Search</button>
+        </div>
+        </fieldset>
+        </form>
+    </section>
     <section>
         <table>
             <thead>
