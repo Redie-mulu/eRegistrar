@@ -25,7 +25,7 @@
     <p><a href="/eregistrar/student/search">Search Student</a></p>
     <!--    search student -->
     <section>
-        <form action="/fairfieldlibrary/sysadmin/publisher/search" method="get">
+        <form action="/eregistrar/student/search" method="get">
             <fieldset>
                 <legend style="font-weight: bolder;">Search for Publisher(s)</legend>
                 <label>
@@ -33,7 +33,7 @@
                 </label>
                 <div>
                     <input tvpe="search" name="searchString" id="searchString" stvle="width: 35%; height:4em"
-                           th: value="${searchString}" placeholder="Enter some text to search for Publisher"
+                           th:value="${searchString}" placeholder="Enter some text to search for Publisher"
                            autofocus>
                     <button type="submit" style="height: 4em; width: 7em;">Search</button>
                 </div>
@@ -79,24 +79,24 @@
             </tbody>
         </table>
     </section>
-    <section>
+<!--    <section>-->
         <!--        pagination-->
-        <table>
-            <tbody>
-            <tr>
-                <th scope="row">Pages:</th>
-                <td th:each="pageCount: ${#numbers.sequence(1, students.totalPages)}">
-                    <a th:if="${currentPageNo == pageCount-1}" th:href="@{/eregistrar/student/list(pageNo=${pageCount-1})}"
-                       th:text="${pageCount}" style="padding: 100%; background-color: aqua;"></a>
-                    <a th:if="${currentPageNo != pageCount-1}" th:href="@{/eregistrar/student/list(pageNo=${pageCount-1})}"
-                       th:text="${pageCount}"></a>
-                </td>
-            </tr>
+<!--        <table>-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--                <th scope="row">Pages:</th>-->
+<!--                <td th:each="pageCount: ${#numbers.sequence(1, students.totalPages)}">-->
+<!--                    <a th:if="${currentPageNo == pageCount-1}" th:href="@{/eregistrar/student/list(pageNo=${pageCount-1})}"-->
+<!--                       th:text="${pageCount}" style="padding: 100%; background-color: aqua;"></a>-->
+<!--                    <a th:if="${currentPageNo != pageCount-1}" th:href="@{/eregistrar/student/list(pageNo=${pageCount-1})}"-->
+<!--                       th:text="${pageCount}"></a>-->
+<!--                </td>-->
+<!--            </tr>-->
 
-            </tbody>
+<!--            </tbody>-->
 
-        </table>
-    </section>
+<!--        </table>-->
+<!--    </section>-->
 </main>
 </body>
 </html>
